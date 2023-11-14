@@ -11,15 +11,15 @@ input = open('lrc_vsfc.pkl', 'rb')
 model = pkl.load(input)
 
 st.header('Write a feedback')
-#################
+txt = st.text_area('', '')
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Test image')
-
+if txt != '':
     if st.button('Predict'):
-        feature_vector = np.array(image)
+        feature_vector = txt
         label = str((model.predict(feature_vector))[0])
 
         st.header('Result')
         st.text(class_list[label])
+else:
+        st.header('Result')
+        st.text('There is no text here')
