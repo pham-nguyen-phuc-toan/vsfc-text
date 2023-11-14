@@ -12,6 +12,7 @@ model = pkl.load(input)
 
 st.header('Write a feedback')
 txt = st.text_area('', '')
+st.write(txt)
 
 if txt != '':
     if st.button('Predict'):
