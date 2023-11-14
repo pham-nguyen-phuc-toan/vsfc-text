@@ -19,7 +19,6 @@ txt = st.text_area('', '')
 if txt != '':
     if st.button('Predict'):
         feature_vector = encoder.transform([txt])
-        st.write(feature_vector[0])
         label = str((model.predict(feature_vector))[0])
 
         st.header('Result')
